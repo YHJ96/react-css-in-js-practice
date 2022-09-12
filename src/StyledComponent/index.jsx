@@ -10,6 +10,12 @@ const BasicButton = styled.button`
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  // 편리하게 따로 지정할 필요 없이 컴포넌트 안에서 설정 가능하다.
+  &:hover {
+    background-color: white;
+    border: 2px solid green;
+    color: green;
+  }
 `;
 
 // 스타일 컴포넌트는 컴포넌트의 프로퍼티를 받아서 사용할 수 있다.
