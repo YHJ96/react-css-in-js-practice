@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 // 스타일 컴포넌트 기본 사용법
 const BasicButton = styled.button`
@@ -39,6 +39,29 @@ const ExtendButton = styled(BasicButton)`
   font-size: 20px;
 `;
 
+// 버튼의 속성을 정하여 사용 가능하다.
+const AttributeButton = styled.button.attrs({
+  type: 'submit',
+})`
+  background-color: red;
+`;
+
+// animation 적용방법 keyframes은 항상 animation을 사용할 컴포넌트 위에 선언해야 한다.
+const rotate = keyframes` 
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+`;
+
+const AnimatedDiv = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  animation: ${rotate} infinite 10s;
+`;
+
 function StyledComponent() {
   return (
     <div>
@@ -48,6 +71,8 @@ function StyledComponent() {
       <PropsButton>Props 버튼</PropsButton>
       {/* as 속성을 사용해서 컴포넌트의 html 태그를 변경할 수 있다. (생산성 증가) */}
       <ExtendButton as="a">Extend 버튼</ExtendButton>
+      <AttributeButton>Attribute 버튼</AttributeButton>
+      <AnimatedDiv />
     </div>
   );
 }
