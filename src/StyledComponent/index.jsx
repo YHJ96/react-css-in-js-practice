@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 // 스타일 컴포넌트 기본 사용법
 const BasicButton = styled.button`
@@ -27,6 +27,14 @@ const PropsButton = styled.button`
   text-align: center;
   font-size: 16px;
   cursor: pointer;
+  // 한번에 CSS 적용하는 방법
+  ${(props) =>
+    props.color === 'primary' &&
+    css`
+      color: white;
+      background: navy;
+      border-color: navy;
+    `}
 `;
 
 // defaultProps도 설정 가능하다.
@@ -68,6 +76,7 @@ function StyledComponent() {
       <BasicButton>기본 버튼</BasicButton>
       <PropsButton color="red">Props 버튼</PropsButton>
       <PropsButton color="purple">Props 버튼</PropsButton>
+      <PropsButton color="primary">Props 버튼</PropsButton>
       <PropsButton>Props 버튼</PropsButton>
       {/* as 속성을 사용해서 컴포넌트의 html 태그를 변경할 수 있다. (생산성 증가) */}
       <ExtendButton as="a">Extend 버튼</ExtendButton>
