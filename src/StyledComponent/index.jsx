@@ -28,6 +28,11 @@ PropsButton.defaultProps = {
   color: 'blue',
 };
 
+// 스타일을 상속받아서 사용가능하며 상속 받은 CSS를 덮어서 사용할 수 있다. (생산성 증가)
+const ExtendButton = styled(BasicButton)`
+  font-size: 20px;
+`;
+
 function StyledComponent() {
   return (
     <div>
@@ -35,6 +40,8 @@ function StyledComponent() {
       <PropsButton color="red">Props 버튼</PropsButton>
       <PropsButton color="purple">Props 버튼</PropsButton>
       <PropsButton>Props 버튼</PropsButton>
+      {/* as 속성을 사용해서 컴포넌트의 html 태그를 변경할 수 있다. (생산성 증가) */}
+      <ExtendButton as="a">Extend 버튼</ExtendButton>
     </div>
   );
 }
